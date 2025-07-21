@@ -1,3 +1,4 @@
+// RootApp.tsx
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Canvas from './components/Canvas';
