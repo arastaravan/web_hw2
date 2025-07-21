@@ -15,8 +15,8 @@ export default function Header({ title, setTitle }: HeaderProps) {
         placeholder="Painting Title"
       />
       <div className="space-x-2">
-        <button className="border px-3 py-1">Export</button>
-        <button className="border px-3 py-1">Import</button>
+        <button className="hover:bg-blue-100 border px-3 py-1">Export</button>
+        <button className="hover:bg-blue-100 border px-3 py-1">Import</button>
       </div>
     </div>
   );

@@ -32,15 +32,18 @@ export default function Canvas({ shapes, updateShapePosition, removeShape }: Can
     updateShapePosition(id, newX, newY);
   };
 
+  const handleDoubleClick = (
+      e: React.MouseEvent,
+      id: number
+  ) => {
+      e.preventDefault();
+      removeShape(id);
+  }
+
   const handleMouseDown = (
     e: React.MouseEvent,
     id: number
   ) => {
-    if (e.button === 2) {
-      e.preventDefault();
-      removeShape(id);
-    }
-
     const onMouseMove = (moveEvent: MouseEvent) => handleDrag(moveEvent as any, id);
     const onMouseUp = () => {
       window.removeEventListener('mousemove', onMouseMove);
@@ -61,6 +64,7 @@ export default function Canvas({ shapes, updateShapePosition, removeShape }: Can
         <div
           key={shape.id}
           onMouseDown={(e) => handleMouseDown(e, shape.id)}
+          onDoubleClick={(e) => handleDoubleClick(e, shape.id)}
           className={`${shapeStyles[shape.type]} absolute cursor-move`}
           style={{ left: shape.x, top: shape.y }}
         />
