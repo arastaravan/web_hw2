@@ -3,9 +3,11 @@ import React from 'react';
 interface HeaderProps {
   title: string;
   setTitle: (title: string) => void;
+  onExport: () => void;
+  onImport: () => void;
 }
 
-export default function Header({ title, setTitle }: HeaderProps) {
+export default function Header({ title, setTitle, onExport, onImport }: HeaderProps) {
   return (
     <div className="flex justify-between items-center border p-2">
       <input
@@ -15,8 +17,8 @@ export default function Header({ title, setTitle }: HeaderProps) {
         placeholder="Painting Title"
       />
       <div className="space-x-2">
-        <button className="hover:bg-blue-100 border px-3 py-1">Export</button>
-        <button className="hover:bg-blue-100 border px-3 py-1">Import</button>
+        <button onClick={onExport} className="hover:bg-blue-100 border px-3 py-1">Export</button>
+        <button onClick={onImport} className="hover:bg-blue-100 border px-3 py-1">Import</button>
       </div>
     </div>
   );
